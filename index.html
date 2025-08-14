@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Наумов и Партнёры — Бесплатная юридическая консультация</title>
+  <meta name="description" content="Списание долгов, помощь с кредитами и выплатами. Бесплатная консультация по всей России. Свяжитесь через Telegram." />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f5f7fa;
+      color: #1f2937;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #1e40af;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 40px;
+      animation: fadeInDown 1s ease;
+    }
+    header p {
+      font-size: 22px;
+      margin-top: 10px;
+      animation: fadeIn 1.5s ease;
+    }
+    .btn-tg {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #0088cc;
+      color: white;
+      padding: 16px 28px;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.3s;
+      margin-top: 30px;
+      animation: fadeInUp 2s ease;
+    }
+    .btn-tg:hover {
+      background: #0077b6;
+      transform: scale(1.05);
+    }
+    .icon {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+    .experience {
+      background: #22c55e;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: -10px;
+      border-radius: 12px;
+      animation: fadeIn 2s ease;
+    }
+    main {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+    .service-card h3 {
+      margin-top: 0;
+      color: #1e40af;
+    }
+    .service-card p {
+      margin-bottom: 0;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+    footer {
+      background: #1e293b;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+    }
+    footer a {
+      color: #22c55e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Фіксована кнопка Telegram внизу екрану */
+    .fixed-tg {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0088cc;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .fixed-tg:hover {
+      background: #0077b6;
+      transform: scale(1.05);
+    }
+
+    /* Спливаюче вікно */
+    .popup {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: #f97316;
+      color: white;
+      padding: 18px 24px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      animation: popupShow 0.5s ease forwards;
+      z-index: 9998;
+    }
+    .popup button {
+      background: white;
+      color: #f97316;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .popup button:hover {
+      background: #ffe6d5;
+      transform: scale(1.05);
+    }
+
+    /* Анімації */
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes popupShow {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Адаптивність для мобільних */
+    @media (max-width: 480px) {
+      .btn-tg {
+        font-size: 16px;
+        padding: 12px 20px;
+      }
+      .fixed-tg {
+        font-size: 16px;
+        padding: 12px 20px;
+      }
+      .experience {
+        font-size: 18px;
+        padding: 20px 15px;
+      }
+      .popup {
+        bottom: 70px;
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Наумов и Партнёры</h1>
+    <p>Бесплатная консультация юриста по всей России</p>
+    <a class="btn-tg" href="https://t.me/+79148411870" target="_blank">
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+        <path d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120s120-53.7,120-120S186.3,0,120,0z M179.3,85.8l-21.2,100
+        c-1.6,7.2-5.9,8.9-11.9,5.5l-33-24.3l-15.9,15.3c-1.8,1.8-3.3,3.3-6.7,3.3l2.4-34.3l62.4-56.3c2.7-2.4-0.6-3.8-4.2-1.4l-77.1,48.5
+        l-33.2-10.4c-7.2-2.2-7.4-7.2,1.5-10.7l129.6-50.1C175.3,69.3,181,73.2,179.3,85.8z"/>
+      </svg>
+      Написать в Telegram
+    </a>
+  </header>
+
+  <div class="experience">
+    ✅ 7 лет практики — 7000 успешно завершенных дел
+  </div>
+
+  <main>
+    <section class="services">
+      <div class="service-card" onclick="window.open('https://t.me/+79148411870','_blank')" style="animation-delay:0.2s">
+        <h3>Списание долгов</h3>
+        <p>Полное списание всех видов долгов и кредитов</p>
+      </div>
+      <div class="service-card" onclick="window.open('https://t.me/+79148411870','_blank')" style="animation-delay:0.4s">
+        <h3>Помощь с кредитами</h3>
+        <p>Сопровождение реструктуризации и снятия задолженности</p>
+      </div>
+      <div class="service-card" onclick="window.open('https://t.me/+79148411870','_blank')" style="animation-delay:0.6s">
+        <h3>Оформление выплат</h3>
+        <p>Помощь в получении и оформлении компенсаций и выплат</p>
+      </div>
+      <div class="service-card" onclick="window.open('https://t.me/+79148411870','_blank')" style="animation-delay:0.8s">
+        <h3>Судовое сопровождение</h3>
+        <p>Представление интересов в судах и медиации</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Свяжитесь с нами через <a href="https://t.me/+79148411870" target="_blank">Telegram</a></p>
+    <p>© 2025 Наумов и Партнёры</p>
+  </footer>
+
+  <!-- Фіксована кнопка Telegram -->
+  <a class="fixed-tg" href="https://t.me/+79148411870" target="_blank">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+      <path d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120s120-53.7,120-120S186.3,0,120,0z M179.3,85.8l-21.2,100
+      c-1.6,7.2-5.9,8.9-11.9,5.5l-33-24.3l-15.9,15.3c-1.8,1.8-3.3,3.3-6.7,3.3l2.4-34.3l62.4-56.3c2.7-2.4-0.6-3.8-4.2-1.4l-77.1,48.5
+      l-33.2-10.4c-7.2-2.2-7.4-7.2,1.5-10.7l129.6-50.1C175.3,69.3,181,73.2,179.3,85.8z"/>
+    </svg>
+    Консультация в Telegram
+  </a>
+
+  <!-- Спливаюче вікно -->
+  <div class="popup" id="popup">
+    <div style="display:flex; justify-content: space-between; align-items:center;">
+      <span>Бесплатная консультация!</span>
+      <button id="closePopup" style="background:#f87171;color:white;padding:4px 10px;border-radius:50%;font-weight:bold;">×</button>
+    </div>
+    <button onclick="window.open('https://t.me/+79148411870','_blank')">Написать в Telegram</button>
+  </div>
+
+  <script>
+    // Плавна поява карток
+    const cards = document.querySelectorAll('.service-card');
+    cards.forEach(card => {
+      card.style.opacity = '0';
+      setTimeout(() => { card.style.opacity = '1'; }, 300);
+    });
+
+    // Спливаюче вікно через 3 секунди
+    setTimeout(() => {
+      const popup = document.getElementById('popup');
+      popup.style.display = 'flex';
+    }, 3000);
+
+    // Закриття спливаючого вікна
+    document.getElementById('closePopup').onclick = function() {
+      const popup = document.getElementById('popup');
+      popup.style.display = 'none';
+    };
+  </script>
+</body>
+</html>
